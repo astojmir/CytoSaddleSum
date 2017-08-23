@@ -1,0 +1,43 @@
+<project default="package">
+  <property name="build" location="build"/>
+  <property name="lib" location="lib"/>
+  <property name="src" location="src/"/>
+  <path id="compile.classpath">
+    <fileset dir="${lib}"/>
+  </path>
+  <target name="compile">
+    <mkdir dir="${lib}"/>
+    <mkdir dir="${build}"/>
+    <javac destdir="${build}" debug="true" includeantruntime="true">
+      <src location="${src}"/>
+      <classpath refid="compile.classpath"/>
+    </javac>
+    <copy todir="build">
+      <fileset dir="${src}"
+               includes="**/*.png,
+                         **/*.props" />
+    </copy>
+  </target>
+  <target name="package" depends="compile">
+    <jar destfile="CytoSaddleSum.jar" basedir="build">
+      <fileset dir="${build}"
+	       includes="gov/nih/nlm/ncbi/qmbp/cytosaddlesum/main/plugin.props,
+	                 gov/nih/nlm/ncbi/qmbp/cytosaddlesum/**/*.class,
+		         gov/nih/nlm/ncbi/qmbp/cytosaddlesum/**/*.png,
+		         gov/nih/nlm/ncbi/qmbp/cytosaddlesum/**/*.props" />
+      <zipgroupfileset dir="${lib}" includes="**/*.jar" />
+      <manifest>
+         <attribute name="Cytoscape-Plugin"
+                    value="gov.nih.nlm.ncbi.qmbp.cytosaddlesum.main.CytoSaddleSum" />
+      </manifest>
+    </jar>
+  </target>
+  <target name="test" depends="package">
+    <copy file="CytoSaddleSum.jar" todir="/home/blurr/vendor/cytoscape-2.8.1/plugins/" />
+    <exec executable="./cytoscape.sh" dir="/home/blurr/vendor/cytoscape-2.8.1/"/>
+  </target>
+  <target name="testdb" depends="package">
+    <copy file="CytoSaddleSum.jar" todir="/home/bliskovs/vendor/cytoscape-v2.7.0/plugins/" />
+    <exec executable="./cytoscapedb.sh" dir="/home/bliskovs/vendor/cytoscape-v2.7.0"/>
+  </target>
+</project>

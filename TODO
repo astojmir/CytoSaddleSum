@@ -1,0 +1,5 @@
+*** OPTIONAL (next release) ***
+- Clicking on Association, Score, Evalue brings -T output window/tab
+    This is not really necessary since double clicking on tables does
+    show original nodes. We expect the user can find out more about these
+    particular nodes using other plugins and/or LinkOut.

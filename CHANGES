@@ -1,0 +1,17 @@
+Release 1.5 (December 14, 2011)
+===============================
+
+* Added the ability to export results to TXT and TAB files and to import from
+  TAB files.
+
+* Added example network and properties to the source repository.
+
+* Removed all extracted external class files from build/. They are now included
+  directly from the JARs in lib/.
+
+
+Release 1.4 (September 19, 2011)
+================================
+
+* Initial release. Versioning is synchronized to standalone *SaddleSum* and *qmbpmn-tools*.
+

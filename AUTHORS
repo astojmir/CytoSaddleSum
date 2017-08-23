@@ -1,0 +1,12 @@
+All standalone CytoSaddleSum code was written by Alexander Bliskovsky and
+Aleksandar Stojmirovic and is placed into Public Domain (see LICENSE file),
+with the following exception:
+
+* all files in lib/*.jar were taken from the Apache HttpComponents toolset (The
+Apache Software Foundation) and are released under Apache License, Version 2.0.
+
+The research leading to SaddleSum was performed by Aleksandar Stojmirovic and
+Yi-Kuo Yu. Please cite
+
+A.Stojmirovic and Y-K. Yu. Robust and accurate data enrichment statistics via
+distribution function of sum of weights. Bioinformatics, 26(21):2752-2759, 2010.
